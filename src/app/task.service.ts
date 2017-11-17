@@ -10,14 +10,14 @@ export class TaskService {
   constructor(private _http: Http) { }
 
   retrieveAll() {
-    this._http.get('http://localhost:8000/tasks').subscribe(
+    this._http.get('http://localhost:5000/tasks').subscribe(
       tasks => this.tasksObserver.next(tasks.json()),
       errorResponse => console.log(errorResponse)
     );
   }
 
   createTask(task: Task) {
-    this._http.post('http://localhost:8000/tasks', task).subscribe(
+    this._http.post('http://localhost:5000/tasks', task).subscribe(
       response => this.retrieveAll(),
       errorResponse => console.log(errorResponse)
     );
